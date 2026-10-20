@@ -832,6 +832,10 @@
 
     // keyboard accessibility (Enter/Space already work on <button>)
   })();
+
+//for footer current year
+ const currentYear = new Date().getFullYear();
+document.getElementById('current-year').textContent = currentYear;
 </script>
 
 
@@ -950,7 +954,7 @@
     </section>
   </main>
   <div class="footer">
-    &copy; 2025 WORLD BEYOND THE KARMAN LINE. Made in <span style="color:#20b7ff;">&#127757; India</span> with <span style="color:#ff4b6e;">&#10084;&#65039;</span>
+    &copy; <span id="current-year"></span> WORLD BEYOND THE KARMAN LINE. Made in <span style="color:#20b7ff;">&#127757; India</span> with <span style="color:#ff4b6e;">&#10084;&#65039;</span>
     <br>
     <!--span id="visitor-counter" style="display:inline-block;margin-top:8px;color:#20b7ff;font-weight:bold;">
       Visitors: <span id="visits">...</span>
