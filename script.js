@@ -183,7 +183,7 @@ yearElement.textContent = currentYear;
         instagram: 'https://instagram.com/__anurag___saikia__',
         linkedin: 'https://www.linkedin.com/in/anurag-saikia-2009nlp07/',
         github: 'https://github.com/anurag90-tech',
-        website: 'https://world-beyond-the-karman-line.github.io/site/'
+        website: 'https://world-beyond-the-karman-line.github.io/'
       }
     },
     {
