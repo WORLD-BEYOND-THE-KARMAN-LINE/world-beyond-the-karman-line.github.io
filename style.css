@@ -35,6 +35,11 @@
       gap: 2rem;
       align-items: center;
     }
+    @media (min-width: 801px) {
+      nav.closed {
+        display: none;
+      }
+    }
     nav a {
       color: #e0eafc;
       text-decoration: none;

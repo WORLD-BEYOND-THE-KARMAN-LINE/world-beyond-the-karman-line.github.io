@@ -111,9 +111,15 @@ yearElement.textContent = currentYear;
     // Hamburger for mobile
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('mainnav');
+    hamburger.setAttribute('aria-expanded', String(window.innerWidth > 800));
     hamburger.addEventListener('click', function() {
-      nav.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', nav.classList.contains('open'));
+      const isDesktop = window.innerWidth > 800;
+      const stateClass = isDesktop ? 'closed' : 'open';
+      nav.classList.toggle(stateClass);
+      hamburger.setAttribute(
+        'aria-expanded',
+        String(isDesktop ? !nav.classList.contains('closed') : nav.classList.contains('open'))
+      );
     });
     // Highlight active nav link on scroll
     const sections = ['home', 'about', 'download', 'collaborators', 'contact'];
@@ -138,7 +144,8 @@ yearElement.textContent = currentYear;
     });
     // Close nav on resize if desktop
     window.addEventListener('resize', () => {
-      if(window.innerWidth > 800) nav.classList.remove('open');
+      nav.classList.remove('open', 'closed');
+      hamburger.setAttribute('aria-expanded', String(window.innerWidth > 800));
     });
     // Animation for sections
     const observer = new IntersectionObserver(entries => {
