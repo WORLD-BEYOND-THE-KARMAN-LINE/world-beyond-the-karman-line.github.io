@@ -76,6 +76,7 @@
 
   (function(){
     const btn = document.getElementById('backToTop');
+    if (!btn) return;
     const THRESHOLD = 400; // px scrolled before showing
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -105,22 +106,36 @@
 
   const currentYear = new Date().getFullYear();
 const yearElement = document.getElementById('current-year');
-yearElement.textContent = currentYear;
+  if (yearElement) yearElement.textContent = currentYear;
 
 
     // Hamburger for mobile
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('mainnav');
-    hamburger.setAttribute('aria-expanded', String(window.innerWidth > 800));
-    hamburger.addEventListener('click', function() {
-      const isDesktop = window.innerWidth > 800;
-      const stateClass = isDesktop ? 'closed' : 'open';
-      nav.classList.toggle(stateClass);
-      hamburger.setAttribute(
-        'aria-expanded',
-        String(isDesktop ? !nav.classList.contains('closed') : nav.classList.contains('open'))
-      );
-    });
+    if (hamburger && nav) {
+      hamburger.setAttribute('aria-expanded', String(window.innerWidth > 800));
+      hamburger.addEventListener('click', function() {
+        const isDesktop = window.innerWidth > 800;
+        const stateClass = isDesktop ? 'closed' : 'open';
+        nav.classList.toggle(stateClass);
+        hamburger.setAttribute(
+          'aria-expanded',
+          String(isDesktop ? !nav.classList.contains('closed') : nav.classList.contains('open'))
+        );
+      });
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 801) {
+            nav.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+      window.addEventListener('resize', () => {
+        nav.classList.remove('open', 'closed');
+        hamburger.setAttribute('aria-expanded', String(window.innerWidth > 800));
+      });
+    }
     // Highlight active nav link on scroll
     const sections = ['home', 'about', 'download', 'collaborators', 'contact'];
     window.addEventListener('scroll', () => {
@@ -136,17 +151,6 @@ yearElement.textContent = currentYear;
         }
       });
     });
-    // Close nav on link click (mobile)
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        if(window.innerWidth < 801) nav.classList.remove('open');
-      });
-    });
-    // Close nav on resize if desktop
-    window.addEventListener('resize', () => {
-      nav.classList.remove('open', 'closed');
-      hamburger.setAttribute('aria-expanded', String(window.innerWidth > 800));
-    });
     // Animation for sections
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -155,7 +159,8 @@ yearElement.textContent = currentYear;
     });
     document.querySelectorAll('section').forEach(sec => observer.observe(sec));
     // Magazine Archive Search/Filter
-    document.getElementById('magazine-search').addEventListener('input', function() {
+    const magazineSearch = document.getElementById('magazine-search');
+    if (magazineSearch) magazineSearch.addEventListener('input', function() {
       const query = this.value.trim().toLowerCase();
       document.querySelectorAll('.magazine-item').forEach(item => {
         const month = item.getAttribute('data-month');
@@ -278,27 +283,33 @@ yearElement.textContent = currentYear;
     grid.setAttribute('aria-busy','false');
   }
 
-  search.addEventListener('input', apply);
-  sortSel.addEventListener('change', apply);
-  chips.forEach(ch => ch.addEventListener('click', () => {
-    const pressed = ch.getAttribute('aria-pressed') === 'true';
-    ch.setAttribute('aria-pressed', (!pressed).toString());
+  if (grid && empty && search && sortSel) {
+    search.addEventListener('input', apply);
+    sortSel.addEventListener('change', apply);
+    chips.forEach(ch => ch.addEventListener('click', () => {
+      const pressed = ch.getAttribute('aria-pressed') === 'true';
+      ch.setAttribute('aria-pressed', (!pressed).toString());
+      apply();
+    }));
     apply();
-  }));
-
-  apply();
+  }
 
 // Show popup only once per session, after 2 seconds
-window.onload = function() {
-  if (!sessionStorage.getItem("popupShown")) {
+window.addEventListener('load', function() {
+  const popup = document.getElementById('popup');
+  if (popup && !sessionStorage.getItem('popupShown')) {
     setTimeout(function() {
-      document.getElementById("popup").classList.add("active");
-      sessionStorage.setItem("popupShown", "true");
+      popup.classList.add('active');
+      sessionStorage.setItem('popupShown', 'true');
     }, 2000); // show after 2 seconds
   }
-};
+});
 
 // Close popup
-document.getElementById("popupClose").onclick = function() {
-  document.getElementById("popup").classList.remove("active");
-};
+const popupClose = document.getElementById('popupClose');
+const popup = document.getElementById('popup');
+if (popupClose && popup) {
+  popupClose.addEventListener('click', function() {
+    popup.classList.remove('active');
+  });
+}

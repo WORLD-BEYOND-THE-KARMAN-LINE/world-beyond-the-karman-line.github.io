@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Meet the writers and editors behind World Beyond the Karman Line.">
+	<title>Collaborators | World Beyond the Karman Line</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../style.css">
+	<script src="../../script.js" defer></script>
+</head>
+<body>
+	<header>
+		<button class="hamburger" id="hamburger" aria-label="Open navigation" aria-controls="mainnav" aria-expanded="false"><span></span><span></span><span></span></button>
+		<nav id="mainnav" aria-label="Main navigation">
+			<a href="../../index.html">Home</a>
+			<a href="../About%20us/index.html">About Us</a>
+			<a href="../Download/index.html">Issues</a>
+			<a href="../Collaborators/index.html" class="active" aria-current="page">Collaborators</a>
+			<a href="../Contact%20us/index.html">Contact</a>
+		</nav>
+	</header>
+	<canvas id="starfield" aria-hidden="true"></canvas>
+	<main>
+		<div class="hero">
+			<div class="hero-title">OUR COLLABORATORS</div>
+			<div class="hero-welcome">Meet the people contributing articles, illustrations, research, reviews, and more.</div>
+		</div>
+		<section id="collaborators" class="section">
+			<h2>Explore Collaborators</h2>
+			<div class="controls" role="group" aria-label="Collaborator filters">
+				<input id="search" type="search" placeholder="Search by name, role, or tags..." aria-label="Search collaborators">
+				<select id="sort" aria-label="Sort collaborators">
+					<option value="name-asc">Name (A to Z)</option>
+					<option value="name-desc">Name (Z to A)</option>
+					<option value="role-asc">Role (A to Z)</option>
+					<option value="role-desc">Role (Z to A)</option>
+				</select>
+				<button class="chip" data-chip="writer" aria-pressed="false">Writers</button>
+				<button class="chip" data-chip="editor" aria-pressed="false">Editors</button>
+				<button class="chip" data-chip="illustrator" aria-pressed="false">Illustrators</button>
+				<button class="chip" data-chip="reviewer" aria-pressed="false">Reviewers</button>
+			</div>
+			<div id="grid" class="grid" aria-live="polite" aria-busy="false"></div>
+			<div id="empty" class="empty" hidden>No collaborators match your filters.</div>
+			<div class="cta" style="margin-top:2rem;">
+				<h2>Want to Collaborate?</h2>
+				<p>We welcome articles, illustrations, data visualizations, interviews, and classroom activities. Send your portfolio or pitch to <a href="mailto:worldbeyondthekarmanline@gmail.com">worldbeyondthekarmanline@gmail.com</a>.</p>
+			</div>
+		</section>
+	</main>
+	<footer class="footer">
+		&copy;<span id="current-year"></span> WORLD BEYOND THE KARMAN LINE
+		<div class="footer-links">
+			<a href="../Privacy%20Policy/Privacy%20Policy.pdf">Privacy Policy</a>
+			<a href="../Terms%20Of%20Service/tos.html">Terms of Service</a>
+		</div>
+	</footer>
+</body>
+</html>
 

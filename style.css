@@ -214,6 +214,11 @@
       font-size: 0.97rem;
       color: #e0eafc;
     }
+    .issue-status {
+      color: #b0b9c6;
+      font-size: 0.9rem;
+      text-align: center;
+    }
     @media (max-width: 800px) {
       nav {
         display: none;
@@ -460,6 +465,9 @@
   gap: 0.5rem;
   justify-content: center;
   margin-bottom: 2rem;
+}
+#collaborators {
+  max-width: 1000px;
 }
 #collaborators .controls input,
 #collaborators .controls select,

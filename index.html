@@ -11,8 +11,8 @@
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
-    <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header>
@@ -23,12 +23,11 @@
     </button>
     <!--div class="site-title">WORLD BEYOND THE KARMAN LINE</div-->
     <nav id="mainnav">
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#download">Download</a>
-      <!--a href="#author">Our Team</a-->
-      <a href="#collaborators">Our Collaborators</a>
-      <a href="#contact">Contact Us</a>
+      <a href="index.html" class="active" aria-current="page">Home</a>
+      <a href="pages/About%20us/index.html">About Us</a>
+      <a href="pages/Download/index.html">Issues</a>
+      <a href="pages/Collaborators/index.html">Collaborators</a>
+      <a href="pages/Contact%20us/index.html">Contact</a>
     </nav>
   </header>
     <canvas id="starfield"></canvas>
@@ -134,100 +133,33 @@
         <div class="magazine-item" data-month="march" data-year="2026" data-title="Volume 3">
           <img src="https://images.unsplash.com/photo-1468421870903-4df1664ac249?auto=format&fit=crop&w=120&q=80" alt="Magazine Cover Mar 2026" loading="lazy">
           <div class="magazine-info">
-            <div class="magazine-month">March 2026</div>
-            <div class="magazine-title">Coming Soon...</div>
-          </div>
-          <a class="download-btn" href="https://world-beyond-the-karman-line.github.io/site/404.html" download>
-            Download
-          </a>
-        </div>
-        <!-- Add more months as needed, with appropriate data-month, data-year, data-title -->
-      </div>
-    </section>
-    <section id="about">
-      <h2>About Us</h2>
-      <p>
-        <strong> World Beyond the Karman Line </strong> is a non-profit space magazine led  by a team of space enthusiasts, educators, and science writers, dedicated to inspiring curiosity and expanding horizons beyond Earth’s edge.<br><br> We exist purely to share knowledge, spark imagination, 
-        and celebrate the wonders of space science and exploration and hence do not generate any revenue or operate commercially—our mission is driven solely by passion, learning, and the spirit of discovery.<br><br> Join us as we explore the wonders of the universe, one issue at a time!
-  <!--is a passionate initiative by a team of space enthusiasts, educators, and science writers. Every month, we bring you the latest discoveries, breathtaking images, and inspiring stories from the cosmos.<br><br>
-        Our mission is to make space science accessible and exciting for everyone. Join us as we explore the wonders of the universe, one issue at a time!-->
-      </p>
-    </section>
-<!-- OUR COLLABORATORS SECTION -->
-<section id="collaborators" class="section">
-  <div class="hero">
-    <div class="hero-title">Our Collaborators</div>
-    <div class="hero-sub">
-      The brilliant minds contributing articles, illustrations, research, reviews and more to
-      <strong>World Beyond the Karman Line</strong>.
-    </div>
-  </div>
+            <main>
+              <div class="hero" id="home">
+                <div class="hero-title">WELCOME TO<br>WORLD BEYOND THE KARMAN LINE</div>
+                <img src="https://dl.dropboxusercontent.com/scl/fi/67wwi6gaqhudczofog0du/Black-Modern-Hello-World-Space-Logo_20240810_103621_0000.png?rlkey=izvi59a64pjvxzjrmd7rouzkg&e=1&st=48q4toxq&dl=0" alt="World Beyond the Karman Line logo" class="site-title" style="height:auto;width:auto;margin-left:0.5rem;">
+                <div class="hero-welcome">
+                  Explore space science, discover new ideas, and meet the people who make our magazine.
+                </div>
+              </div>
+              <section>
+                <h2>Explore the Issues</h2>
+                <p>Browse the magazine archive and find an issue to read.</p>
+                <a class="download-btn" href="pages/Download/index.html">Browse Issues</a>
+              </section>
+              <section>
+                <h2>Curiosity Beyond Earth</h2>
+                <p>We are a non-profit space magazine sharing knowledge and celebrating the wonders of space science and exploration.</p>
+                <a class="download-btn" href="pages/About%20us/index.html">About Us</a>
+              </section>
+              <section>
+                <h2>Meet Our Collaborators</h2>
+                <p>Get to know the writers and editors contributing to World Beyond the Karman Line.</p>
+                <a class="download-btn" href="pages/Collaborators/index.html">View Collaborators</a>
+              </section>
+              <section>
+                <h2>Get in Touch</h2>
+                <p>Have a question, idea, or contribution to share?</p>
+                <a class="download-btn" href="pages/Contact%20us/index.html">Contact Us</a>
+              </section>
+            </main>
 
-  <h2>Explore Collaborators</h2>
-
-  <!-- Controls -->
-  <div class="controls" role="group" aria-label="Collaborator filters">
-    <input id="search" type="text" placeholder="Search by name, role, or tags…" aria-label="Search collaborators" />
-    <select id="sort" aria-label="Sort collaborators">
-      <option value="name-asc">Name (A → Z)</option>
-      <option value="name-desc">Name (Z → A)</option>
-      <option value="role-asc">Role (A → Z)</option>
-      <option value="role-desc">Role (Z → A)</option>
-    </select>
-    <button class="chip" data-chip="writer" aria-pressed="false">Writers</button>
-    <button class="chip" data-chip="editor" aria-pressed="false">Editors</button>
-    <button class="chip" data-chip="illustrator" aria-pressed="false">Illustrators</button>
-    <button class="chip" data-chip="reviewer" aria-pressed="false">Reviewers</button>
-  </div>
-
-  <div id="grid" class="grid" aria-live="polite" aria-busy="false"></div>
-  <div id="empty" class="empty" hidden>No collaborators match your filters.</div>
-
-  <div class="cta" style="margin-top:2rem;">
-    <h2>Want to Collaborate?</h2>
-    <p style="max-width:800px;margin:.4rem auto 0;line-height:1.6;">
-      We welcome articles, illustrations, data visualizations, interviews, and classroom activities.  
-      Email us at
-      <a href="mailto:worldbeyondthekarmanline@gmail.com" style="color:var(--accent);font-weight:700;text-decoration:underline;">
-        worldbeyondthekarmanline@gmail.com
-      </a>
-      with your portfolio or pitch.
-    </p>
-  </div>
-</section>
-<section id="contact">
-      <h2>Contact Us</h2>
-      <p>Have questions, suggestions, or feedback? <br>Reach out to us at:<br><br>
-        <a href="mailto:worldbeyondthekarmanline@gmail.com" style="color:#20b7ff;font-weight:bold;text-decoration:underline;">
-          worldbeyondthekarmanline@gmail.com
-        </a>
-      </p>
-    </section>
-  </main>
-  <div class="footer">
-    &copy;<span id="current-year"></span>WORLD BEYOND THE KARMAN LINE. Made in <span style="color:#20b7ff;">&#127757; India</span> with <span style="color:#ff4b6e;">&#10084;&#65039;</span>
-    <br>
-    <div class="footer-links">
-      <a href="pages/Privacy%20Policy/Privacy%20Policy.pdf">Privacy Policy</a>
-      <a href="pages/Terms%20Of%20Service/tos.html">Terms of Service</a>
-    </div>
-    <!--span id="visitor-counter" style="display:inline-block;margin-top:8px;color:#20b7ff;font-weight:bold;">
-      Visitors: <span id="visits">...</span>
-    </span-->
-    <img class="webring-counter"
-src="https://count.getloli.com/@wbkl?theme=3d-num&padding=7&offset=0&align=center&scale=1&pixelated=1&darkmode=1&prefix=0"
-alt="visitor counter" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-
-  </div>
-  <!-- Popup Banner -->
-  <div class="popup-overlay" id="popup">
-    <div class="popup-box">
-      <span class="popup-close" id="popupClose">&times;</span>
-      <h2>🚀 Call for Articles!</h2>
-      <p>We are accepting submissions for our <strong>November Edition</strong> of <em>World Beyond the Karman Line</em>.  
-      Join us by becoming a contributor and get featured!</p>
-      <a href="mailto:worldbeyondthekarmanline@gmail.com">Submit Now</a>
-    </div>
-  </div>
-</body>
-</html>
