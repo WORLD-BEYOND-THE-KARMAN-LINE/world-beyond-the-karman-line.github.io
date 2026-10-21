@@ -101,6 +101,48 @@
       color: #e0eafc;
       margin-bottom: 1.5rem;
     }
+    .project-announcement {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      max-width: 850px;
+      margin-top: 0.5rem;
+      padding: 1.4rem 1.6rem;
+      border-left: 4px solid #20b7ff;
+      border-radius: 8px;
+      text-align: left;
+    }
+    .project-announcement .announcement-label {
+      margin: 0 0 0.4rem;
+      color: #20b7ff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .project-announcement h2 {
+      margin: 0 0 0.5rem;
+    }
+    .project-announcement p:not(.announcement-label) {
+      margin: 0;
+      line-height: 1.6;
+    }
+    .announcement-link {
+      flex: 0 0 auto;
+      color: #20b7ff;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .project-announcement {
+        animation: announcement-enter 800ms ease-out both;
+      }
+      @keyframes announcement-enter {
+        from { opacity: 0; transform: translateY(14px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
     section {
       background: rgba(30, 34, 44, 0.93);
       border-radius: 18px;
@@ -249,6 +291,11 @@
     @media (max-width: 600px) {
       .hero-title { font-size: 1.3rem; }
       section { padding: 1.2rem 0.5rem; }
+      .project-announcement {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
       .magazine-cover { width: 90px; height: 120px; }
       header { padding: 0 0.7rem; }
       .magazine-list {
